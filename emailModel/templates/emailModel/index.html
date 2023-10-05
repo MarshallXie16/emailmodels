@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExitMA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'emailModel/style.css' %}">
+</head>
+
+<body>
+    <header>
+        <a href="/email">
+            <div class="logo"></div>
+        </a>
+        <nav>
+            <a href="/email">Home</a>
+            <a href="/email/signup">Sign Up</a>
+            {% if first_name %}
+            <a href="/email/logout">Log Out</a>
+            {% else %}
+            <a href="/email/login">Log In</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <div class="container">
+        {% block body %}
+        <div class="welcome-message">
+            {% block content %}
+        {% if first_name %}
+        <h1>Hello, {{ first_name }}</h1>
+        {% else %}
+        <h1>Hello, world.</h1>
+        {% endif %}
+    {% endblock %}
+            <p>
+                ExitMA is a platform designed to automate the business selling process. We provide quick valuation, matchmaking, and a streamlined deal flow for business owners. Experience our hassle-free M&A solutions today!
+            </p>
+        </div>
+        <div class="dashboard">
+            <div>
+                <h3>Valuations</h3>
+                <p>Total: $150,000</p>
+            </div>
+            <div>
+                <h3>Matches</h3>
+                <p>Total: 5</p>
+            </div>
+            <div>
+                <h3>Messages</h3>
+                <p>New: 2</p>
+            </div>
+            <div>
+                <h3>Notifications</h3>
+                <p>New: 3</p>
+            </div>
+        </div>
+        {% endblock %}
+    </div>
+</body>
+
+</html>
+

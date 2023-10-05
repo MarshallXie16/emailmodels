@@ -1,0 +1,25 @@
+{% extends 'emailModel/index.html' %}
+{% block body %}
+<form action="/email/signup/" method="post" class="signup-form">
+    {% csrf_token %}
+    <h1>Sign Up</h1>
+    <div class="signup-field">
+        {{ form.first_name }}
+        {{ form.last_name }}
+    </div>
+    <div class="signup-field">
+        {{ form.email }}
+    </div>
+    <div class="signup-field">
+        {{ form.password }}
+    </div>
+    <div class="signup-field">
+        <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" required>
+    </div>
+    {% if error_message %}
+        <span class="error">{{ error_message }}</span>
+    {% endif %}
+    <button type="submit">Sign Up</button>
+</form>
+
+{% endblock %}

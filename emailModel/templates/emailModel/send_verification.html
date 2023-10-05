@@ -1,0 +1,12 @@
+{% extends 'emailModel/index.html' %}
+
+{% block body %}
+<h1>Email Verification Sent!</h1>
+<p>Thank you for choosing ExitMA.
+    We have sent a verification email to <span class="blue">{{ email }}</span>.
+    Please check your inbox to confirm your email address.</p>
+<p>Didn't receive the email? <a href="/email/signup/resend-verification/{{ email }}">resend email</a></p>
+{% if message %}
+    {{ message }}
+{% endif %}
+{% endblock %}

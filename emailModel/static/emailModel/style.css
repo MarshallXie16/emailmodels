@@ -1,0 +1,158 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #333;
+}
+
+header {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    position: relative;
+    color: grey;
+    transition: color 0.3s;
+    text-decoration: none;
+    padding: 1rem;
+}
+
+nav a:hover {
+    color: #c40000;
+}
+
+nav a::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #c40000;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+nav a:hover::before {
+    visibility: visible;
+    width: 100%;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.welcome-message, .dashboard {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: box-shadow 0.5s;
+}
+
+.welcome-message:hover, .dashboard:hover, .signup-form:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+h1, h2 {
+    margin-top: 0;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.dashboard div {
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+.logo {
+    height: 5rem;
+    width: 7rem;
+    background-image: url('https://exitma.sfo3.cdn.digitaloceanspaces.com/static/assets/images/exitma.png');
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* signup form */
+
+.signup-form {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.5s;
+}
+
+.signup-field {
+    margin: 0;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+
+input[type="email"], input[type="password"], input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 0.7rem;
+    margin-bottom: 0.7rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input[type="text"] {
+    width: 40%;
+}
+
+.signup-form input:focus {
+    border-color: #c40000;
+    outline: none;
+}
+
+button[type="submit"] {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 30%;
+    padding: 10px;
+    background-color: #c40000;
+    color: #fff;
+    border: 3px solid #c40000;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.5s;
+}
+
+button:hover {
+    color: #c40000;
+    background-color: white;
+}
+
+span.error {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: red;
+}
