@@ -1,0 +1,6 @@
+{% extends 'emailModel/index.html' %}
+
+{% block body %}
+<h1>An error has occurred</h1>
+<p>Error: {% if error_message %} {{ error_message }} {% else %} Generic error {% endif %}</p>
+{% endblock %}

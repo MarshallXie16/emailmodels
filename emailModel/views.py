@@ -61,9 +61,9 @@ def verify_email(request, token):
         user.is_active = True
         user.save()
         verification_token.delete()
-        return redirect('email:index')
+        return render(request, 'emailModel/confirm_verification.html')
     except:
-        return HttpResponse("Invalid verification link or you've already verified your account.")
+        return render(request, 'emailModel/error.html', {'error_message' : "Invalid verification link or you've already verified your account."})
 
 # logs user in
 def login(request):
@@ -111,6 +111,7 @@ def logout(request):
         del request.session['user_id']
     return redirect('email:index')
 
+# resends the verification email with a new verification token (not tested!)
 def resend_verification(request, email):
     try:
         # retrieve user name
@@ -124,12 +125,19 @@ def resend_verification(request, email):
     except: 
         return redirect('email:index')
 
+
+
+
+
+
 # move these to another module
 
 # sends a verification email to provided email address
 def send_verification_email(first_name, email, token):
     url_route = reverse('email:verify_email', args=[token])
-    link = f'https://emailmodels-aaae8958e05a.herokuapp.com{url_route}' #!!!
+    # http://127.0.0.1:8000
+    # https://emailmodels-aaae8958e05a.herokuapp.com
+    link = f'https://emailmodels-aaae8958e05a.herokuapp.com{url_route}'
     print(f'link: {link}')
     image_url = 'https://exitma.sfo3.cdn.digitaloceanspaces.com/static/assets/images/exitma.png'
     from_email = 'marshallxie16@gmail.com'
