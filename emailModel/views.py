@@ -6,6 +6,7 @@ from .forms import UserSignUpForm, LoginForm
 from .models import EmailVerificationToken, User
 from .email_templates import get_verification_email_body_html, get_verification_email_body_text, get_newsletter_email_body_html, get_newsletter_email_body_text
 from django.contrib.auth.hashers import make_password, check_password
+from decouple import config
 
 # dummy homepage
 def index(request):

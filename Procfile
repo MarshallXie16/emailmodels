@@ -1,0 +1,1 @@
+web: gunicorn emailmodels.wsgi

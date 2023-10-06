@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import dj_database_url
 import os
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-&1jhfs89-d^e)6$ne^zcc=52xs4o7nf&)wqh%7(e4x01tks^t1'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['yourappname.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['emailmodels.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -80,11 +81,11 @@ WSGI_APPLICATION = 'emailmodels.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME', 'postgres'),
-        'USER': os.environ.get('DB_NAME', 'postgres'),
-        'PASSWORD': os.environ.get('DB_PASSWORD', 'Mx701025$'),
-        'HOST': os.environ.get('DB_HOST', 'localhost'),
-        'PORT': os.environ.get('DB_PORT', '5432'),       
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_NAME'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),       
     }
 }
 
@@ -143,5 +144,5 @@ EMAIL_HOST = 'smtp.gmail.com' # gmail SMTP server
 EMAIL_PORT = 587 # port connecting to SMTP server
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-EMAIL_HOST_USER = 'marshallxie16@gmail.com' # authenticating w/ SMTP server
-EMAIL_HOST_PASSWORD = 'orih egel mnax urkw' # password for authentication
+EMAIL_HOST_USER = config('HOST_EMAIL') # authenticating w/ SMTP server
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD') # password for authentication
