@@ -129,7 +129,7 @@ def resend_verification(request, email):
 # sends a verification email to provided email address
 def send_verification_email(first_name, email, token):
     url_route = reverse('email:verify_email', args=[token])
-    link = f'http://127.0.0.1:8000{url_route}' #!!!
+    link = f'https://emailmodels-aaae8958e05a.herokuapp.com{url_route}' #!!!
     print(f'link: {link}')
     image_url = 'https://exitma.sfo3.cdn.digitaloceanspaces.com/static/assets/images/exitma.png'
     from_email = 'marshallxie16@gmail.com'
